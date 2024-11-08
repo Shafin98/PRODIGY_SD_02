@@ -23,9 +23,9 @@ function makeGuess() {
     attempts++;
 
     if (attempts > max) {
-        feedback.innerText = `You have reached maximum attempts! better try next time`;
+        feedback.innerText = `You have reached maximum attempts! Please reastart the game`;
         feedback.style.color = 'red';
-        attempts = 0;
+        return;
     } 
 
     if (guess === randomNumber) {
@@ -35,7 +35,8 @@ function makeGuess() {
         } else {
             feedback.innerText = `Congratulations! You guessed it in ${attempts} attempts! 🎉`;
             feedback.style.color = 'green';
-        }        
+        } 
+        setTimeout(resetGame, 2000);       
     } else if (guess < randomNumber) {
         feedback.innerText = "Too low! Try again.";
         feedback.style.color = '#ffcc00';
@@ -52,6 +53,7 @@ function resetGame() {
     attempts = 0; 
     const feedback = document.getElementById('feedback');
     feedback.innerText = "Game reset! Try guessing a new number.";
-    feedback.style.color = 'blue';
+    feedback.style.color = '#f77913;';
+    guessInput.value = '';
 }
 
