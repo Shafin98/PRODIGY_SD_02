@@ -50,11 +50,22 @@ function makeGuess() {
         } 
         setTimeout(resetGame, 2000);     
     } else if (guess < randomNumber) {
-        feedback.innerText = "Too low! Try again.";
-        feedback.style.color = '#ffcc00';
+        if ((randomNumber - guess) < 10){
+            feedback.innerText = "still low! Try again.";
+            feedback.style.color = '#ffcc00';
+        } else {
+            feedback.innerText = "Too low! Try again.";
+            feedback.style.color = '#ffcc00';
+        }
+        
     } else {
-        feedback.innerText = "Too high! Try again.";
-        feedback.style.color = '#ffcc00';
+        if ((guess - randomNumber) < 10){
+            feedback.innerText = "still high! Try again.";
+            feedback.style.color = '#ffcc00';
+        } else {
+            feedback.innerText = "Too high! Try again.";
+            feedback.style.color = '#ffcc00';
+        }
     }
 
     guessInput.value = ''; 
