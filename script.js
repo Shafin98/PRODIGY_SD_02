@@ -51,7 +51,7 @@ function makeGuess() {
         setTimeout(resetGame, 2000);     
     } else if (guess < randomNumber) {
         if ((randomNumber - guess) < 10){
-            feedback.innerText = "still low! Try again.";
+            feedback.innerText = "Go higher! Try again.";
             feedback.style.color = '#ffcc00';
         } else {
             feedback.innerText = "Too low! Try again.";
@@ -60,7 +60,7 @@ function makeGuess() {
         
     } else {
         if ((guess - randomNumber) < 10){
-            feedback.innerText = "still high! Try again.";
+            feedback.innerText = "Go lower! Try again.";
             feedback.style.color = '#ffcc00';
         } else {
             feedback.innerText = "Too high! Try again.";
